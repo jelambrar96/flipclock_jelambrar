@@ -1,0 +1,283 @@
+/* THEMES */
+
+/********** Theme: dark **********/
+/* Font styles */
+.flipclock.flipclock__theme-dark {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+/* Rotor group headings */
+.flipclock.flipclock__theme-dark .rotor-group-heading:before {
+  color: #000000;
+}
+/* Delimeters */
+.flipclock.flipclock__theme-dark .rotor-group:nth-child(n+2):nth-child(-n+3):before,
+.flipclock.flipclock__theme-dark .rotor-group:nth-child(n+2):nth-child(-n+3):after {
+  background-color: #151515;
+}
+/* Rotor tops */
+.flipclock.flipclock__theme-dark .rotor,
+.flipclock.flipclock__theme-dark .rotor-top,
+.flipclock.flipclock__theme-dark .rotor-leaf-front {
+  color: #FFFFFF;
+  background-color: #151515;
+}
+/* Rotor bottoms */
+.flipclock.flipclock__theme-dark .rotor-bottom,
+.flipclock.flipclock__theme-dark .rotor-leaf-rear {
+  color: #EFEFEF;
+  background-color: #202020;
+}
+/* Hinge */
+.flipclock.flipclock__theme-dark .rotor:after {
+  border-top: solid 1px #151515;
+}
+
+/********** Theme: light **********/
+/* Font styles */
+.flipclock.flipclock__theme-light {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+/* Rotor group headings */
+.flipclock.flipclock__theme-light .rotor-group-heading:before {
+  color: #EEEEEE;
+}
+/* Delimeters */
+.flipclock.flipclock__theme-light .rotor-group:nth-child(n+2):nth-child(-n+3):before,
+.flipclock.flipclock__theme-light .rotor-group:nth-child(n+2):nth-child(-n+3):after {
+  background-color: #DDDDDD;
+}
+/* Rotor tops */
+.flipclock.flipclock__theme-light .rotor,
+.flipclock.flipclock__theme-light .rotor-top,
+.flipclock.flipclock__theme-light .rotor-leaf-front {
+  color: #222222;
+  background-color: #DDDDDD;
+}
+/* Rotor bottoms */
+.flipclock.flipclock__theme-light .rotor-bottom,
+.flipclock.flipclock__theme-light .rotor-leaf-rear {
+  color: #333333;
+  background-color: #EEEEEE;
+}
+/* Hinge */
+.flipclock.flipclock__theme-light .rotor:after {
+  border-top: solid 1px #222222;
+}
+
+/* END OF THEMES */
+
+.flipclock {
+  overflow: visible;
+  width: 510px;
+  height: 110px;
+}
+
+.flipclock .rotor-group {
+  position: relative;
+  float: left;
+  padding-right: 30px;
+}
+
+.flipclock .rotor-group:last-child {
+  padding-right: 0;
+}
+
+.flipclock .rotor-group-heading:before {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.flipclock .rotor-group:nth-child(1) .rotor-group-heading:before {
+  content: attr(data-before);
+}
+
+.flipclock .rotor-group:nth-child(2) .rotor-group-heading:before {
+  content: attr(data-before);
+}
+
+.flipclock .rotor-group:nth-child(3) .rotor-group-heading:before {
+  content: attr(data-before);
+}
+
+.flipclock .rotor-group:nth-child(4) .rotor-group-heading:before {
+  content: attr(data-before);
+}
+
+.flipclock .rotor-group:nth-child(n+2):nth-child(-n+3):before {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 115px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.flipclock .rotor-group:nth-child(n+2):nth-child(-n+3):after {
+  content: '';
+  position: absolute;
+  bottom: 50px;
+  left: 115px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.flipclock .rotor {
+  position: relative;
+  float: left;
+  width: 50px;
+  height: 80px;
+  margin: 0px 5px 0px 0px;
+  border-radius: 4px;
+  font-size: 4rem;
+  text-align: center;
+  perspective: 200px;
+}
+
+.flipclock .rotor:last-child {
+  margin-right: 0;
+}
+
+.flipclock .rotor-top,
+.flipclock .rotor-bottom {
+  overflow: hidden;
+  position: absolute;
+  width: 50px;
+  height: 40px;
+}
+
+.flipclock .rotor-leaf {
+  z-index: 1;
+  position: absolute;
+  width: 50px;
+  height: 80px;
+  transform-style: preserve-3d;
+  transition: transform 0s;
+}
+
+.flipclock .rotor-leaf.flipped {
+  transform: rotateX(-180deg);
+  transition: all 0.5s ease-in-out;
+}
+
+.flipclock .rotor-leaf-front,
+.flipclock .rotor-leaf-rear {
+  overflow: hidden;
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  margin: 0;
+  transform: rotateX(0deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flipclock .rotor-leaf-front {
+  line-height: 80px;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.flipclock .rotor-leaf-rear {
+  line-height: 0px;
+  border-radius: 0px 0px 4px 4px;
+  transform: rotateX(-180deg);
+}
+
+.flipclock .rotor-top {
+  line-height: 80px;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.flipclock .rotor-bottom {
+  bottom: 0;
+  line-height: 0px;
+  border-radius: 0px 0px 4px 4px;
+}
+
+.flipclock .rotor:after {
+  content: '';
+  z-index: 2;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 50px;
+  height: 40px;
+  border-radius: 0px 0px 4px 4px;
+}
+
+@media (max-width: 550px) {
+
+  .flipclock {
+    width: 312px;
+    height: 70px;
+  }
+
+  .flipclock .rotor {
+    font-size: 2.2rem;
+    margin-right: 3px;
+  }
+
+  .flipclock .rotor,
+  .flipclock .rotor-leaf,
+  .flipclock .rotor-leaf-front,
+  .flipclock .rotor-leaf-rear,
+  .flipclock .rotor-top,
+  .flipclock .rotor-bottom,
+  .flipclock .rotor:after {
+    width: 30px;
+  }
+
+  .flipclock .rotor-group {
+    padding-right: 20px;
+  }
+
+  .flipclock .rotor-group:last-child {
+    padding-right: 0px;
+  }
+
+  .flipclock .rotor-group-heading:before {
+    font-size: 0.8rem;
+    height: 20px;
+    line-height: 20px;
+  }
+
+  .flipclock .rotor-group:nth-child(n+2):nth-child(-n+3):before,
+  .flipclock .rotor-group:nth-child(n+2):nth-child(-n+3):after {
+    left: 69px;
+  }
+
+  .flipclock .rotor-group:nth-child(n+2):nth-child(-n+3):before {
+    bottom: 13px;
+    height: 8px;
+    width: 8px;
+  }
+
+  .flipclock .rotor-group:nth-child(n+2):nth-child(-n+3):after {
+    bottom: 29px;
+    height: 8px;
+    width: 8px;
+  }
+
+  .flipclock .rotor-leaf-front,
+  .flipclock .rotor-top {
+    line-height: 50px;
+  }
+
+  .flipclock .rotor-leaf,
+  .flipclock .rotor {
+    height: 50px;
+  }
+
+  .flipclock .rotor-leaf-front,
+  .flipclock .rotor-leaf-rear,
+  .flipclock .rotor-top,
+  .flipclock .rotor-bottom,
+  .flipclock .rotor:after {
+    height: 25px;
+  }
+}
